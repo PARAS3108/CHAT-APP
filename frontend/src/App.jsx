@@ -10,8 +10,12 @@ import { useAuthStore } from "./store/useAuthStore.js";
 import { useEffect } from "react";
 import { Loader } from "lucide-react";
 import { Toaster } from "react-hot-toast";
+import { useThemeStore } from "./store/useThemeStore.js";
 const App = () => {
-  const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
+  const { authUser, checkAuth, isCheckingAuth, onlineUsers } = useAuthStore();
+  const { theme } = useThemeStore();
+
+  console.log({ onlineUsers });
 
   useEffect(() => {
     // Only check auth if we don't already have an authenticated user
@@ -28,7 +32,7 @@ const App = () => {
       </div>
     );
   return (
-    <div data-theme="retro">
+    <div data-theme={theme}>
       <Navbar />
       <Routes>
         <Route

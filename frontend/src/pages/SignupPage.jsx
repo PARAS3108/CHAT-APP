@@ -53,35 +53,39 @@ const SignupPage = () => {
     }
   };
   return (
-    <div className='min-h-screen grid lg:grid-cols-2'>
+    <div className="min-h-screen grid lg:grid-cols-2">
       {/* left handside of the form */}
-      <div className='flex flex-col justify-center items-center p-6 sm:p-12'>
-        <div className='w-full max-w-md space-y-8'>
+      <div className="flex flex-col justify-center items-center p-4 sm:p-6 lg:p-12">
+        <div className="w-full max-w-md space-y-6 sm:space-y-8">
           {/* LOGO */}
-          <div className='text-center mb-8'>
-            <div className='flex flex-col items-center gap-2 group'>
-              <div className='w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center group-hover:bg-blue-200 transition-colors'>
-                <MessageSquare className='w-6 h-6 text-blue-600' />
+          <div className="text-center mb-6 sm:mb-8">
+            <div className="flex flex-col items-center gap-2 group">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-blue-100 flex items-center justify-center group-hover:bg-blue-200 transition-colors">
+                <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
               </div>
-              <h1 className='text-2xl font-bold mt-2'>Create Account</h1>
-              <p className='text-gray-600'>
+              <h1 className="text-xl sm:text-2xl font-bold mt-2">
+                Create Account
+              </h1>
+              <p className="text-sm sm:text-base text-gray-600">
                 Get started with your free account
               </p>
             </div>
           </div>
-          <form onSubmit={handleSubmit} className='space-y-6'>
-            <div className='form-control'>
-              <label className='label'>
-                <span className='label-text font-medium'>Full Name</span>
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text font-medium text-sm sm:text-base">
+                  Full Name
+                </span>
               </label>
-              <div className='relative'>
-                <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
-                  <User className='w-5 h-5 text-gray-400' />
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <User className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
                 </div>
                 <input
-                  type='text'
-                  className={`input input-bordered w-full pl-10`}
-                  placeholder='John Doe'
+                  type="text"
+                  className={`input input-bordered w-full pl-9 sm:pl-10 text-sm sm:text-base input-sm sm:input-md`}
+                  placeholder="John Doe"
                   value={formData.fullName}
                   onChange={(e) =>
                     setFormData({ ...formData, fullName: e.target.value })
@@ -90,18 +94,20 @@ const SignupPage = () => {
               </div>
             </div>
 
-            <div className='form-control'>
-              <label className='label'>
-                <span className='label-text font-medium'>Email</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text font-medium text-sm sm:text-base">
+                  Email
+                </span>
               </label>
-              <div className='relative'>
-                <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
-                  <Mail className='w-5 h-5 text-gray-400' />
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
                 </div>
                 <input
-                  type='email'
-                  className={`input input-bordered w-full pl-10`}
-                  placeholder='you@example.com'
+                  type="email"
+                  className={`input input-bordered w-full pl-9 sm:pl-10 text-sm sm:text-base input-sm sm:input-md`}
+                  placeholder="you@example.com"
                   value={formData.email}
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
@@ -109,42 +115,46 @@ const SignupPage = () => {
                 />
               </div>
             </div>
-            <div className='form-control'>
-              <label className='label'>
-                <span className='label-text font-medium'>Password</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text font-medium text-sm sm:text-base">
+                  Password
+                </span>
               </label>
-              <div className='relative'>
-                <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
-                  <Lock className='w-5 h-5 text-gray-400' />
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <Lock className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
                 </div>
                 <input
                   type={showPassword ? "text" : "password"}
-                  className={`input input-bordered w-full pl-10`}
-                  placeholder='***************'
+                  className={`input input-bordered w-full pl-9 sm:pl-10 text-sm sm:text-base input-sm sm:input-md`}
+                  placeholder="***************"
                   value={formData.password}
                   onChange={(e) =>
                     setFormData({ ...formData, password: e.target.value })
                   }
                 />
                 <button
-                  type='button'
-                  className='absolute inset-y-0 right-0 pr-3 flex items-center'
-                  onClick={() => setShowPassword(!showPassword)}>
+                  type="button"
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
                   {showPassword ? (
-                    <EyeOff className='w-5 h-5 text-gray-400' />
+                    <EyeOff className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
                   ) : (
-                    <Eye className='w-5 h-5 text-gray-400' />
+                    <Eye className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
                   )}
                 </button>
               </div>
             </div>
             <button
-              type='submit'
-              className='btn btn-primary w-full'
-              disabled={isSigningUp}>
+              type="submit"
+              className="btn btn-primary w-full btn-sm sm:btn-md text-sm sm:text-base"
+              disabled={isSigningUp}
+            >
               {isSigningUp ? (
                 <>
-                  <Loader2 className='w-5 h-5 animate-spin' />
+                  <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 animate-spin" />
                   Loading...
                 </>
               ) : (
@@ -152,10 +162,13 @@ const SignupPage = () => {
               )}
             </button>
           </form>
-          <div className='text-center'>
-            <p className='text-gray-600'>
+          <div className="text-center">
+            <p className="text-sm sm:text-base text-gray-600">
               Already have an account?{" "}
-              <Link to='/login' className='text-blue-600 hover:text-blue-800'>
+              <Link
+                to="/login"
+                className="text-blue-600 hover:text-blue-800 text-sm sm:text-base"
+              >
                 Sign in
               </Link>
             </p>
@@ -165,8 +178,8 @@ const SignupPage = () => {
 
       {/* right side */}
       <AuthImagePattern
-        title='Join our community'
-        subtitle='Connect with friends , share moments , and stay in touch with you'
+        title="Join our community"
+        subtitle="Connect with friends , share moments , and stay in touch with you"
       />
     </div>
   );
