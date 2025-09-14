@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "gen-key": "node -e \"console.log(require('crypto').randomBytes(32).toString('base64'))\""
   },
   "keywords": [],
   "author": "",
